@@ -1,0 +1,62 @@
+* {
+  box-sizing: border-box;
+}
+
+.main-display {
+  font-family: 'Roboto', sans-serif;
+  height: 100vh;
+  min-height: 800px;
+  position: relative;
+  background:
+    linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),
+    url('../images/landing-page.jpg'),
+    no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.app-bar {
+  position: fixed !important;
+}
+
+.instructions-display {
+  background-color: #333333 !important;
+  font-family: 'Roboto', sans-serif;
+}
+
+@-webkit-keyframes downarrow {
+  0% { -webkit-transform: translateY(0); opacity: 0.4 }
+  100% { -webkit-transform: translateY(0.4em); opacity: 0.9 }
+}
+
+.container {
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  position:absolute;
+}
+.arrow {
+  border-color:transparent;
+  border-style:solid;
+  border-width:0 2em;
+  display:block;
+  height:0;
+  margin:10em auto;
+  opacity:0.4;
+  text-indent:-9999px;
+  transform-origin: 50% 50%;
+  width:0;
+  margin-top: 500px;
+}
+
+.down {
+  -webkit-animation: downarrow 0.6s infinite alternate ease-in-out;
+  border-top:2em solid #00b6f1;
+}

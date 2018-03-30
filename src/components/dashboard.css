@@ -1,0 +1,15 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+html {
+  background: #F2F2F2 !important;
+}
+
+.dashboard-title {
+  color: #333333 !important;
+  font-size: 48px;
+  text-align: center;
+  z-index: 999999;
+}

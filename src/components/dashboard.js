@@ -4,6 +4,7 @@ import AppBar from 'material-ui/AppBar';
 import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 import MapContainer from './map-container';
+import DashboardInstructions from './dashboard-instructions';
 
 
 class Dashboard extends Component {
@@ -27,6 +28,7 @@ class Dashboard extends Component {
                       onLeftIconButtonClick={this.handleToggle}
                       className="app-bar"
                   />
+                  <DashboardInstructions />
                   <MapContainer />
                   <Drawer
                       docked={false}

@@ -30,7 +30,7 @@
     min-height: auto;
   }
 
-  h2 {
+  .sub-header {
       font-size: 16px !important;
   }
 
@@ -45,7 +45,7 @@
     font-size: 60px;
   }
 
-  h2 {
+  .sub-header {
       font-size: 18px;
   }
 

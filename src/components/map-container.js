@@ -1,4 +1,5 @@
 import React from "react"
+import AddExperienceModal from './add-experience-modal';
 const _ = require("lodash");
 
 const { compose, withProps, lifecycle, withStateHandlers } = require("recompose");
@@ -16,14 +17,14 @@ const MapWithASearchBox = compose(
     googleMapURL: "https://maps.googleapis.com/maps/api/js?key=AIzaSyC4R6AN7SmujjPUIGKdyao2Kqitzr1kiRg&v=3.exp&libraries=geometry,drawing,places",
     loadingElement: <div style={{ height: `100%` }} />,
     containerElement: <div style={{
-      height: `350px`,
+      height: `400px`,
       width: `90%`,
       marginLeft: `auto`,
       marginRight: `auto`,
       marginBottom: `50px`,
       boxShadow: `0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19)`,
       position: `relative`,
-      top: `220px`
+      top: `10px`
     }} />,
     mapElement: <div style={{ height: `100%` }} />,
   }),
@@ -121,7 +122,7 @@ const MapWithASearchBox = compose(
             onCloseClick={props.onToggleOpen}>
           <div>
             <p style={{fontSize: `14px`}}>Click here to add an experience for this location.</p>
-            <button style={{margin: `30px`}}>Add Experience</button>
+            <AddExperienceModal />
           </div>
           </InfoWindow>}
       </Marker>

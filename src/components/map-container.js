@@ -65,7 +65,7 @@ const MapWithASearchBox = compose(
             position: place.geometry.location,
           }));
           const nextCenter = _.get(nextMarkers, '0.position', this.state.center);
-          console.log(nextMarkers);
+          // console.log(nextMarkers);
           this.setState({
             center: nextCenter,
             markers: nextMarkers,

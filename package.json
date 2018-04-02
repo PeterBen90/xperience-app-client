@@ -12,6 +12,8 @@
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.2.2",
     "redux": "^3.7.2",
+    "redux-form": "^7.3.0",
+    "redux-form-material-ui": "^4.3.3",
     "redux-thunk": "^2.2.0",
     "webpack": "^3.11.0"
   },
@@ -21,8 +23,10 @@
     "babel-preset-react": "^6.24.1",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
-    "react-scripts": "^1.1.1",
-    "google-maps": "^3.2.1"
+    "eslint": "^4.19.1",
+    "eslint-plugin-react": "^7.7.0",
+    "google-maps": "^3.2.1",
+    "react-scripts": "^1.1.1"
   },
   "scripts": {
     "start": "react-scripts start",

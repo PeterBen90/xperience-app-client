@@ -117,20 +117,20 @@ const MapWithASearchBox = compose(
       />
     </SearchBox>
     {props.markers.map((marker, index) =>
-      <Marker key={index} position={{lat: marker.position.lat(), lng: marker.position.lng()}} onClick={props.onToggleOpen}>
-          {props.isOpen && <InfoWindow
-            onCloseClick={props.onToggleOpen}>
-          <div>
-            <p style={{fontSize: `16px`, margin: `10px`, fontWeight: `bold`}}>Click here to add an experience for this location.</p>
-            <AddExperienceModal />
-          </div>
-          </InfoWindow>}
-      </Marker>
+      <div key={index}>
+        <Marker position={{lat: marker.position.lat(), lng: marker.position.lng()}} onClick={props.onToggleOpen}>
+            {props.isOpen && <InfoWindow
+              onCloseClick={props.onToggleOpen}>
+            <div>
+              <p style={{fontSize: `16px`, margin: `10px`, fontWeight: `bold`}}>Add an experience for this location.</p>
+              <AddExperienceModal />
+            </div>
+            </InfoWindow>}
+        </Marker>
+      </div>
     )}
   </GoogleMap>
 );
-
-<MapWithASearchBox />
 
 
 class MapContainer extends React.PureComponent {

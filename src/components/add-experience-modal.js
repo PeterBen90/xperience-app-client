@@ -50,7 +50,6 @@ class AddExperienceModal extends Component {
         type="submit"
         label="Submit"
         primary={true}
-        onClick={this.handleClose}
       />,
     ];
 
@@ -78,18 +77,18 @@ class AddExperienceModal extends Component {
               e.target.detailsInput.value = '';
               e.target.recommendationInput.value = '';
             }}>
-              <TextField name="titleInput" hintText="Experience Title" required />
-              <DatePicker name="dateInput" hintText="Date of Experience" />
+              <TextField name="titleInput" hintText="Experience Title" required={true} />
+              <DatePicker name="dateInput" hintText="Date of Experience" autoOk={true} required={true} />
               <TextField
                 floatingLabelText="How was your experience?"
                 name="detailsInput"
                 multiLine={true}
                 rows={2}
                 rowsMax={20}
-                required
+                required={true}
               />
               <p className="recommendation">Would you recommend this experience?</p>
-              <RadioButtonGroup name="recommendationInput" defaultSelected="not_light" required>
+              <RadioButtonGroup name="recommendationInput" defaultSelected="not_light" required={true}>
                   <RadioButton
                     value="not_light"
                     label="Yes"

@@ -1,15 +1,17 @@
-const experienceReducer = (state = [], action) => {
+const initialState = {experiences: []}
+
+const experienceReducer = (state = initialState, action) => {
   switch(action.type) {
     case 'ADD_EXPERIENCE':
-      return [
+      return {
         ...state,
-        {
+        experiences: [...state.experiences, {
           title: action.title,
           date: action.date,
           details: action.details,
           recommendation: action.recommendation
-        }
-      ]
+        }]
+      }
     default:
       return state
   }

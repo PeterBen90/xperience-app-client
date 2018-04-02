@@ -22,7 +22,7 @@ const DisplayCards = (props) => {
             <div className="box how-to">
               <h2 className="card-title">How To</h2>
               <img className="how-to-image" src={Maps} alt="map" />
-              <p className="card-content-2">First, choose a city on the interactive map in your dashboard. Second, add a new experience to your growing list of experiences. Third, share you experiences with your friends and view theirs too.</p>
+              <p className="card-content-2">First, choose a city on the interactive map in your dashboard. Second, add a new experience to your growing list of experiences. Third, share you experiences with your friends and even view theirs too.</p>
             </div>
           </div>
 

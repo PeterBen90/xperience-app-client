@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
-import './dashboard.css';
+import './experience-page.css';
 import AppBar from 'material-ui/AppBar';
 import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
-import MapContainer from './map-container';
-import DashboardInstructions from './dashboard-instructions';
 import { Link } from 'react-router-dom';
 
 
-class Dashboard extends Component {
+class ExperiencePage extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -29,8 +27,6 @@ class Dashboard extends Component {
                       onLeftIconButtonClick={this.handleToggle}
                       className="app-bar"
                   />
-                  <DashboardInstructions />
-                  <MapContainer />
                   <Drawer
                       docked={false}
                       width={250}
@@ -50,4 +46,4 @@ class Dashboard extends Component {
     }
 };
 
-export default Dashboard;
+export default ExperiencePage;

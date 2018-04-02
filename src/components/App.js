@@ -3,15 +3,17 @@ import './App.css'
 import Home from './home';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 import Dashboard from './dashboard';
-import ExperienceList from './experience-list';
+import ExperiencePage from './experience-page';
+import history from '../history';
+
 
 const App = (props) => {
   return (
-    <Router>
+    <Router history={history}>
         <div className="app">
           <Route exact path="/" component={Home} />
           <Route exact path="/dashboard" component={Dashboard} />
-          <Route exact path="/experience-list" component={ExperienceList} />
+          <Route exact path="/experience-page" component={ExperiencePage} />
         </div>
     </Router>
   );

@@ -121,7 +121,7 @@ const MapWithASearchBox = compose(
           {props.isOpen && <InfoWindow
             onCloseClick={props.onToggleOpen}>
           <div>
-            <p style={{fontSize: `14px`}}>Click here to add an experience for this location.</p>
+            <p style={{fontSize: `16px`, margin: `10px`, fontWeight: `bold`}}>Click here to add an experience for this location.</p>
             <AddExperienceModal />
           </div>
           </InfoWindow>}

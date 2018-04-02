@@ -3,24 +3,23 @@
 }
 
 .instructions-title {
-  color: #00838F;
+  /*color: #00838F;*/
+  color: #f2f2f2;
   font-size: 48px;
   text-align: center;
   position: relative;
   top: 90px;
   font-weight: bold;
-  text-shadow: 1px 2px black;
+  text-shadow: 2px 2px black;
 }
 
 .card {
-  height: 250px;
+  height: 260px;
   text-align: left;
   margin-top: 50px;
   padding-top: 30px;
   padding-left: 20px;
   padding-right: 20px;
-/*  margin-left: 15px;
-  margin-right: 15px;*/
   border-radius: 5px;
   border: 2px solid black;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -39,6 +38,42 @@
   font-weight: bold;
   font-size: 20px;
   margin-bottom: 20px;
+}
+
+.search-image {
+  height: 30px;
+  width: 30px;
+  float: right;
+  position: relative;
+  bottom: 50px;
+}
+
+.plus-image {
+  height: 35px;
+  width: 35px;
+  float: right;
+  position: relative;
+  bottom: 50px;
+}
+
+@media screen and (max-width: 460px) {
+
+  .instructions-container {
+    flex-direction: column;
+    min-height: auto;
+  }
+
+
+  .instructions-title {
+    font-size: 35px !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .instructions-title {
+    font-size: 40px;
+  }
+
 }
 
 

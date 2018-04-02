@@ -8,7 +8,6 @@
   text-align: center;
   margin-top: 50px;
   margin-bottom: 30px;
-  padding-top: 40px;
   margin-left: 15px;
   margin-right: 15px;
   border-radius: 5px;
@@ -35,8 +34,9 @@
   margin-top: 10px;
   font-size: 70px;
   font-weight: bold;
-  color: #00838F;
-  text-shadow: 1px 2px black;
+  /*color: #00838F;*/
+  color: #f2f2f2;
+  text-shadow: 2px 2px black;
 }
 
 .row {
@@ -46,15 +46,52 @@
 }
 
 .card-content {
-  padding: 20px;
+  padding-top: 14px;
   text-align: center;
   font-weight: bold;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.card-content-2 {
+  text-align: center;
+  font-weight: bold;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 8px;
+}
+
+.card-content-3 {
+  text-align: center;
+  font-weight: bold;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .card-title {
   font-size: 25px;
   font-weight: bold;
+  margin-top: 20px;
 }
+
+.about-image {
+  height: 50px;
+  width: 50px;
+  margin-top: 13px;
+}
+
+.how-to-image {
+  height: 65px;
+  width: 65px;
+  margin-top: 5px;
+}
+
+.start-image {
+  height: 65px;
+  width: 65px;
+  margin-top: 13px;
+}
+
 
 @media screen and (max-width: 460px) {
 

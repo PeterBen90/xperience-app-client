@@ -1,21 +1,10 @@
-const initialState = {experiences: []}
+import { combineReducers } from 'redux';
+import user from './user';
+import experienceReducer from './experienceReducer'
 
-const experienceReducer = (state = initialState, action) => {
-  switch(action.type) {
-    case 'ADD_EXPERIENCE':
-      return {
-        ...state,
-        experiences: [...state.experiences, {
-          title: action.title,
-          date: action.date,
-          details: action.details,
-          recommendation: action.recommendation
-        }]
-      }
-    default:
-      return state
-  }
-}
+const rootReducer = combineReducers({
+  user,
+  experienceReducer
+})
 
-export default experienceReducer;
-
+export default rootReducer;

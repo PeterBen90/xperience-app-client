@@ -4,6 +4,7 @@ import './float-grid.css';
 import World from '../images/world.png';
 import Maps from '../images/map.png';
 import Phone from '../images/start.png';
+import RegistrationForm from './registration-form';
 
 const DisplayCards = (props) => {
   return (
@@ -30,7 +31,8 @@ const DisplayCards = (props) => {
             <div className="box get-started">
               <h2 className="card-title">Get Started!</h2>
               <img className="start-image" src={Phone} alt="phone" />
-              <p className="card-content-3">Create a free account here (Link) or register from the side bar to start tracking your experiences now.</p>
+              <p className="card-content-3">Create a free account here or register from the side bar to start tracking your experiences now.</p>
+              <RegistrationForm />
             </div>
           </div>
         </div>

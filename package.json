@@ -16,7 +16,8 @@
     "redux-form": "^7.3.0",
     "redux-form-material-ui": "^4.3.3",
     "redux-thunk": "^2.2.0",
-    "webpack": "^3.11.0"
+    "webpack": "^3.11.0",
+    "whatwg-fetch": "^2.0.4"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

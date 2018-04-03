@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css'
 import Home from './home';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import {Router, Route} from 'react-router-dom';
 import Dashboard from './dashboard';
 import ExperiencePage from './experience-page';
 import history from '../history';

@@ -4,7 +4,7 @@ import AppBar from 'material-ui/AppBar';
 import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 import Header from './header';
-import DisplayCards from './display-cards'
+import DisplayCards from './display-cards';
 
 
 

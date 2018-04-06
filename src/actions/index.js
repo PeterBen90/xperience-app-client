@@ -1,4 +1,5 @@
 //Authentication Actions
+import { API_BASE_URL } from '../config';
 
 export const REGISTER_USER_SUCCESS = 'REGISTER_USER_SUCCESS';
 export const registerUserSuccess = (user) => ({
@@ -7,7 +8,7 @@ export const registerUserSuccess = (user) => ({
 });
 
 export const registerUser = (username, password) => dispatch => {
-  fetch('http://localhost:8080/api/users/', {
+  fetch(`${API_BASE_URL}/users/`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -32,7 +33,7 @@ export const loginUserSuccess = (token) => ({
 });
 
 export const loginUser = (username, password) => dispatch => {
-  fetch('http://localhost:8080/api/auth/login', {
+  fetch(`${API_BASE_URL}/auth/login`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -49,7 +50,9 @@ export const loginUser = (username, password) => dispatch => {
     dispatch(loginUserSuccess(authToken))
     window.location = '/dashboard'
   })
-  .catch(error => console.log(error))
+  .catch(error => {
+    window.location = '/'
+  })
 }
 
 export const logoutUser = () => dispatch => {
@@ -77,4 +80,6 @@ export const EDIT_EXPERIENCE = 'EDIT_EXPERIENCE';
 export const editExperience = () => ({
     type: EDIT_EXPERIENCE,
 });
+
+
 

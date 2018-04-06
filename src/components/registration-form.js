@@ -3,7 +3,9 @@ import './registration-form.css';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import TextField from 'material-ui/TextField';
-import RaisedButton from 'material-ui/RaisedButton';
+import MenuItem from 'material-ui/MenuItem'
+import { connect } from 'react-redux';
+import { registerUser } from '../actions';
 
 class RegistrationForm extends Component {
   constructor(props) {
@@ -12,7 +14,6 @@ class RegistrationForm extends Component {
           "open": false,
       };
   }
-
 
   handleOpen = () => {
     this.setState({open: true});
@@ -45,16 +46,25 @@ class RegistrationForm extends Component {
 
     return (
       <div style={{display: `block`}}>
-        <RaisedButton className="reg-button" label="Register" onClick={this.handleOpen} />
+        <MenuItem id="register" onClick={this.handleOpen}>Register</MenuItem>
         <Dialog
             title="Registration"
             modal={true}
             open={this.state.open}
             autoScrollBodyContent={true}
           >
-           <form onSubmit={(e) => { e.preventDefault(); this.handleClose(); }}>
-            <TextField name="username" hintText="Username" required={true}/><br />
-            <TextField name="pwd" type="password" hintText="Password" required={true}/>
+          Create a username and password
+          <form onSubmit={(e) => {
+                e.preventDefault();
+                this.handleClose();
+
+                const username = e.target.username.value;
+                const password = e.target.password.value;
+
+                this.props.dispatch(registerUser(username, password));
+            }}>
+            <TextField name="username" type="text" hintText="Username" required={true}/><br />
+            <TextField name="password" type="password" hintText="Password" required={true}/>
             <div style={{ textAlign: 'right', padding: 8, margin: '24px -24px -24px -24px' }}>
               {actions}
             </div>
@@ -65,4 +75,4 @@ class RegistrationForm extends Component {
   }
 }
 
-export default RegistrationForm;
+export default connect()(RegistrationForm);

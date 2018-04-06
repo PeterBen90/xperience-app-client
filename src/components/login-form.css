@@ -1,0 +1,22 @@
+* {
+  box-sizing: border-box;
+}
+
+.main-background {
+  font-family: 'Roboto', sans-serif;
+  height: 100vh;
+  min-height: 580px;
+  position: relative;
+  background:
+    linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),
+    url('../images/landing-page.jpg'),
+    no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-position: 50% 50%;
+}

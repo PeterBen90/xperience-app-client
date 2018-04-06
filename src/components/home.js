@@ -5,7 +5,8 @@ import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 import Header from './header';
 import DisplayCards from './display-cards';
-
+import RegistrationForm from './registration-form';
+import { Link } from 'react-router-dom';
 
 
 class Home extends Component {
@@ -37,8 +38,8 @@ class Home extends Component {
                       onRequestChange={(open) => this.setState({open})}>
 
                       <AppBar title="Xperience" />
-                      <MenuItem id="register">Register</MenuItem>
-                      <MenuItem id="login">Log In</MenuItem>
+                      <RegistrationForm />
+                      <MenuItem containerElement={<Link to="/login-form" />} id="login">Log In</MenuItem>
                   </Drawer>
                   <div className="container">
                       <a href="#display-cards" className="arrow down">Down</a>

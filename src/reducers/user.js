@@ -1,6 +1,6 @@
 const initialState = {
   data: {},
-  token: ''
+  token: null
 }
 
 const user = (state = initialState, action) => {

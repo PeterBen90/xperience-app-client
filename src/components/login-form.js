@@ -19,6 +19,8 @@ class LoginForm extends Component {
     this.setState({ open: false });
   }
 
+
+
   render() {
     const actions = [
       <FlatButton

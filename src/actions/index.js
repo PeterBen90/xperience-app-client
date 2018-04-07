@@ -60,6 +60,19 @@ export const logoutUser = () => dispatch => {
   window.location = '/'
 }
 
+// export const protectedEndpoint = () => dispatch => {
+//   console.log('we made it');
+// //   fetch(`${API_BASE_URL}/protected`, {
+// //     method: 'GET',
+// //     headers: {
+// //       'Content-Type': 'application/json'
+// //     }
+// //   })
+// //   .then(res => res.json())
+// //   .then(json => console.log(json))
+// //   .catch(error => console.log(error))
+// }
+
 //Experience Actions
 
 export const ADD_EXPERIENCE = 'ADD_EXPERIENCE';

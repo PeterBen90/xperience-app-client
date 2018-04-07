@@ -34,7 +34,6 @@ class ExperiencePage extends Component {
                       onRequestChange={(open) => this.setState({open})}>
 
                       <AppBar title="Xperience" />
-                      <MenuItem containerElement={<Link to="/" />} id="home">Home</MenuItem>
                       <MenuItem containerElement={<Link to="/dashboard" />} id="dashboard">Dashboard</MenuItem>
                       <MenuItem containerElement={<Link to="/experience-page" />} id="experiences">Experiences</MenuItem>
                       <MenuItem id="following">Following</MenuItem>

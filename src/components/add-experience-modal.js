@@ -7,7 +7,7 @@ import TextField from 'material-ui/TextField';
 import DatePicker from 'material-ui/DatePicker';
 import { RadioButton, RadioButtonGroup } from 'material-ui/RadioButton';
 import { connect } from 'react-redux';
-import { addExperience } from '../actions';
+import { addExperienceSuccess } from '../actions';
 
 const styles = {
   radioButton: {
@@ -68,17 +68,20 @@ class AddExperienceModal extends Component {
 
               let titleInput = e.target.titleInput.value;
               let dateInput = e.target.dateInput.value;
+              let locationInput = e.target.locationInput.value;
               let detailsInput = e.target.detailsInput.value;
               let recommendationInput = e.target.recommendationInput.value;
 
-              this.props.addExperience(titleInput, dateInput, detailsInput, recommendationInput);
+              this.props.addExperienceSuccess(titleInput, dateInput, locationInput, detailsInput, recommendationInput);
               e.target.titleInput.value = '';
               e.target.dateInput.value = '';
+              e.target.locationInput.value = '';
               e.target.detailsInput.value = '';
               e.target.recommendationInput.value = '';
             }}>
               <TextField name="titleInput" hintText="Experience Title" required={true} />
               <DatePicker name="dateInput" hintText="Date of Experience" autoOk={true} required={true} />
+              <TextField name="locationInput" hintText="Location" required={true} /><br />
               <TextField
                 floatingLabelText="How was your experience?"
                 name="detailsInput"
@@ -86,16 +89,16 @@ class AddExperienceModal extends Component {
                 rows={2}
                 rowsMax={20}
                 required={true}
-              />
+              /><br />
               <p className="recommendation">Would you recommend this experience?</p>
-              <RadioButtonGroup name="recommendationInput" defaultSelected="not_light" required={true}>
+              <RadioButtonGroup name="recommendationInput" defaultSelected="Yes" required={true}>
                   <RadioButton
-                    value="not_light"
+                    value="Yes"
                     label="Yes"
                     style={styles.radioButton}
                   />
                   <RadioButton
-                    value="light"
+                    value="No"
                     label="No"
                     style={styles.radioButton}
                   />
@@ -111,7 +114,7 @@ class AddExperienceModal extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  addExperience: (title, date, details, recommendation) => dispatch(addExperience(title, date, details, recommendation))
+  addExperienceSuccess: (title, date, location, details, recommendation) => dispatch(addExperienceSuccess(title, date, location, details, recommendation))
 });
 
 export default connect(null, mapDispatchToProps)(AddExperienceModal);

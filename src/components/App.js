@@ -14,8 +14,13 @@ class App extends Component {
 
 
   componentDidMount() {
-    const authToken = localStorage.getItem('token')
-    this.props.dispatch(loginUserSuccess(authToken))
+    if(localStorage.getItem('authToken')) {
+      const authToken = localStorage.getItem('authToken')
+      const userId = localStorage.getItem('userId')
+
+      this.props.dispatch(loginUserSuccess(userId, authToken))
+      history.push('/dashboard')
+    }
   }
 
   render() {

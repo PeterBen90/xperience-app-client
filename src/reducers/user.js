@@ -1,6 +1,7 @@
 const initialState = {
   data: {},
-  token: null
+  authToken: null,
+  userId: null
 }
 
 const user = (state = initialState, action) => {
@@ -14,7 +15,8 @@ const user = (state = initialState, action) => {
     case 'LOGIN_USER_SUCCESS':
       return {
         ...state,
-        token: action.token
+        authToken: action.token,
+        userId: action.userId
       }
 
     default:

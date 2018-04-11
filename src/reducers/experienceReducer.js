@@ -1,13 +1,16 @@
-const initialState = {experiences: []}
+const initialState = {
+  experiences: []
+}
 
 const experienceReducer = (state = initialState, action) => {
   switch(action.type) {
-    case 'ADD_EXPERIENCE':
+    case 'ADD_EXPERIENCE_SUCCESS':
       return {
         ...state,
         experiences: [...state.experiences, {
           title: action.title,
           date: action.date,
+          location: action.location,
           details: action.details,
           recommendation: action.recommendation
         }]

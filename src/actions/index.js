@@ -1,5 +1,7 @@
-//Authentication Actions
 import { API_BASE_URL } from '../config';
+import history from '../history';
+
+//Authentication Actions
 
 export const REGISTER_USER_SUCCESS = 'REGISTER_USER_SUCCESS';
 export const registerUserSuccess = (user) => ({
@@ -27,8 +29,9 @@ export const registerUser = (username, password) => dispatch => {
 }
 
 export const LOGIN_USER_SUCCESS = 'LOGIN_USER_SUCCESS';
-export const loginUserSuccess = (token) => ({
+export const loginUserSuccess = (userId, token) => ({
   type: LOGIN_USER_SUCCESS,
+  userId,
   token
 });
 
@@ -44,11 +47,11 @@ export const loginUser = (username, password) => dispatch => {
     })
   })
   .then(res => res.json())
-  .then(json => {
-    const { authToken } = json
-    localStorage.setItem('token', authToken);
-    dispatch(loginUserSuccess(authToken))
-    window.location = '/dashboard'
+  .then(response => {
+    localStorage.setItem('authToken', response.authToken)
+    localStorage.setItem('userId', response.userId)
+    dispatch(loginUserSuccess(response.userId, response.authToken))
+    history.push('/dashboard')
   })
   .catch(error => {
     window.location = '/'
@@ -60,29 +63,33 @@ export const logoutUser = () => dispatch => {
   window.location = '/'
 }
 
-// export const protectedEndpoint = () => dispatch => {
-//   console.log('we made it');
-// //   fetch(`${API_BASE_URL}/protected`, {
-// //     method: 'GET',
-// //     headers: {
-// //       'Content-Type': 'application/json'
-// //     }
-// //   })
-// //   .then(res => res.json())
-// //   .then(json => console.log(json))
-// //   .catch(error => console.log(error))
-// }
-
 //Experience Actions
 
-export const ADD_EXPERIENCE = 'ADD_EXPERIENCE';
-export const addExperience = (title, date, details, recommendation) => ({
-    type: ADD_EXPERIENCE,
+export const ADD_EXPERIENCE_SUCCESS = 'ADD_EXPERIENCE_SUCCESS';
+export const addExperienceSuccess = (title, date, location, details, recommendation) => ({
+    type: ADD_EXPERIENCE_SUCCESS,
     title,
     date,
+    location,
     details,
     recommendation,
 });
+
+export const addExperience = (experience) => dispatch => {
+  fetch(`${API_BASE_URL}/experience/${localStorage.getItem('userId')}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${localStorage.getItem('authToken')}`
+    },
+    body: JSON.stringify(experience)
+  })
+  .then(res => res.json())
+  .then(response => {
+    dispatch(addExperienceSuccess())
+  })
+  .catch(error => console.log(error))
+}
 
 export const DELETE_EXPERIENCE = 'DELETE_EXPERIENCE';
 export const deleteExperience = () => ({

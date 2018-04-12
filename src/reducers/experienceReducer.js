@@ -15,6 +15,12 @@ const experienceReducer = (state = initialState, action) => {
           recommendation: action.recommendation
         }]
       }
+
+    case 'FETCH_EXPERIENCES_SUCCESS':
+      return {
+        ...state,
+        experiences: action.experiences
+      }
     default:
       return state
   }

@@ -1,22 +1,37 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './experience-list.css';
 import { connect } from 'react-redux';
+import { fetchExperiences } from '../actions';
 
 
-const ExperienceList = ({ experiences }) => (
-  <ul>
-    {experiences.map((experience, index) => (
-      <div key={index}>
-        <li>
-          {experience.title}
-        </li>
+class ExperienceList extends Component {
+
+  componentDidMount() {
+    this.props.dispatch(fetchExperiences())
+  }
+
+  render() {
+    return (
+      <div>
+        <ul>
+          {this.props.experiences.map((experience, index) => (
+            <div key={index}>
+              <li>
+                {this.props.experience.title}
+              </li>
+            </div>
+          ))}
+        </ul>
       </div>
-    ))}
-  </ul>
-);
+    );
+  }
+}
 
 const mapStateToProps = (state) => ({
     experiences: state.experiences
 })
 
 export default connect(mapStateToProps)(ExperienceList);
+
+
+

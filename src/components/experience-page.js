@@ -4,6 +4,7 @@ import AppBar from 'material-ui/AppBar';
 import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 import { Link } from 'react-router-dom';
+import ExperienceList from './experience-list';
 
 
 class ExperiencePage extends Component {
@@ -27,6 +28,7 @@ class ExperiencePage extends Component {
                       onLeftIconButtonClick={this.handleToggle}
                       className="app-bar"
                   />
+                  <ExperienceList />
                   <Drawer
                       docked={false}
                       width={250}

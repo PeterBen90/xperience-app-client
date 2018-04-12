@@ -86,20 +86,30 @@ export const addExperience = (experience) => dispatch => {
   })
   .then(res => res.json())
   .then(response => {
-    dispatch(addExperienceSuccess())
+    dispatch(fetchExperiences())
   })
   .catch(error => console.log(error))
 }
 
-export const DELETE_EXPERIENCE = 'DELETE_EXPERIENCE';
-export const deleteExperience = () => ({
-    type: DELETE_EXPERIENCE,
-});
 
-export const EDIT_EXPERIENCE = 'EDIT_EXPERIENCE';
-export const editExperience = () => ({
-    type: EDIT_EXPERIENCE,
-});
+export const FETCH_EXPERIENCES_SUCCESS = 'FETCH_EXPERIENCES_SUCCESS'
+export const fetchExperiencesSuccess = experiences => ({
+  type: FETCH_EXPERIENCES_SUCCESS,
+  experiences
+})
+
+export const fetchExperiences = () => dispatch => {
+  fetch(`${API_BASE_URL}/experience/${localStorage.getItem('userId')}`, {
+    headers: {
+      'Authorization': `Bearer ${localStorage.getItem('authToken')}`
+    }
+  })
+  .then(res => res.json())
+  .then(experiences => {
+    dispatch(fetchExperiencesSuccess(experiences))
+  })
+  .catch(error => console.log(error))
+}
 
 
 

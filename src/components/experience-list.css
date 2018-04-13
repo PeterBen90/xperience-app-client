@@ -5,11 +5,9 @@
 
 .experience-container {
   position: relative;
-  top: 150px;
+  top: 120px;
   text-align: left;
   line-height: 1.5em;
-  margin-left: 20px;
-  margin-right: 20px;
 }
 
 p {

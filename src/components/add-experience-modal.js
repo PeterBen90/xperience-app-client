@@ -7,7 +7,7 @@ import TextField from 'material-ui/TextField';
 import DatePicker from 'material-ui/DatePicker';
 import { RadioButton, RadioButtonGroup } from 'material-ui/RadioButton';
 import { connect } from 'react-redux';
-import { addExperienceSuccess } from '../actions';
+import { addExperience } from '../actions';
 
 const styles = {
   radioButton: {
@@ -72,7 +72,7 @@ class AddExperienceModal extends Component {
               let detailsInput = e.target.detailsInput.value;
               let recommendationInput = e.target.recommendationInput.value;
 
-              this.props.addExperienceSuccess(titleInput, dateInput, locationInput, detailsInput, recommendationInput);
+              this.props.addExperience(titleInput, dateInput, locationInput, detailsInput, recommendationInput);
               e.target.titleInput.value = '';
               e.target.dateInput.value = '';
               e.target.locationInput.value = '';
@@ -114,7 +114,7 @@ class AddExperienceModal extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  addExperienceSuccess: (title, date, location, details, recommendation) => dispatch(addExperienceSuccess(title, date, location, details, recommendation))
+  addExperience: (title, date, location, details, recommendation) => dispatch(addExperience(title, date, location, details, recommendation))
 });
 
 export default connect(null, mapDispatchToProps)(AddExperienceModal);

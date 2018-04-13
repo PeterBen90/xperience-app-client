@@ -19,7 +19,6 @@ class App extends Component {
       const userId = localStorage.getItem('userId')
 
       this.props.dispatch(loginUserSuccess(userId, authToken))
-      history.push('/dashboard')
     }
   }
 
@@ -36,5 +35,7 @@ class App extends Component {
     );
   }
 }
+
+
 
 export default connect()(App);

@@ -65,28 +65,20 @@ export const logoutUser = () => dispatch => {
 
 //Experience Actions
 
-export const ADD_EXPERIENCE_SUCCESS = 'ADD_EXPERIENCE_SUCCESS';
-export const addExperienceSuccess = (title, date, location, details, recommendation) => ({
-    type: ADD_EXPERIENCE_SUCCESS,
-    title,
-    date,
-    location,
-    details,
-    recommendation,
-});
 
-export const addExperience = (experience) => dispatch => {
+export const addExperience = (title, date, location, details, recommendation) => dispatch => {
   fetch(`${API_BASE_URL}/experience/${localStorage.getItem('userId')}`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${localStorage.getItem('authToken')}`
     },
-    body: JSON.stringify(experience)
+    body: JSON.stringify({title, date, location, details, recommendation}),
   })
   .then(res => res.json())
-  .then(response => {
-    dispatch(fetchExperiences())
+  .then(experiences => {
+    dispatch(fetchExperiencesSuccess(experiences))
+    window.location = '/experience-page'
   })
   .catch(error => console.log(error))
 }
@@ -106,6 +98,7 @@ export const fetchExperiences = () => dispatch => {
   })
   .then(res => res.json())
   .then(experiences => {
+    console.log(experiences);
     dispatch(fetchExperiencesSuccess(experiences))
   })
   .catch(error => console.log(error))

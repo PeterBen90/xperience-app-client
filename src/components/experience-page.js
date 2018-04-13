@@ -28,7 +28,7 @@ class ExperiencePage extends Component {
                       onLeftIconButtonClick={this.handleToggle}
                       className="app-bar"
                   />
-                  <ExperienceList />
+                  <ExperienceList className="experiences" />
                   <Drawer
                       docked={false}
                       width={250}

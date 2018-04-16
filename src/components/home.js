@@ -29,6 +29,7 @@ class Home extends Component {
                       title="Xperience"
                       onLeftIconButtonClick={this.handleToggle}
                       className="app-bar"
+                      style={{boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19)'}}
                   />
                   <Header />
                   <Drawer
@@ -37,7 +38,7 @@ class Home extends Component {
                       open={this.state.open}
                       onRequestChange={(open) => this.setState({open})}>
 
-                      <AppBar title="Xperience" />
+                      <AppBar title="Xperience" style={{boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19)'}} />
                       <RegistrationForm />
                       <MenuItem containerElement={<Link to="/login-form" />} id="login">Log In</MenuItem>
                   </Drawer>

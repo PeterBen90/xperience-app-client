@@ -14,7 +14,7 @@ const DashboardInstructions = (props) => {
               <h2 className="card-1">Step 1: Enter a Location</h2>
               <img className="search-image" src={Search} alt="search" />
                 <ul>
-                  <li>Search the location of your experrience in the Google Maps search bar.</li>
+                  <li>Search the location of your experience in the Google Maps search bar.</li>
                   <li>Click on the marker on the map to reveal the info box.</li>
                   <li>Click the "Add Experience" button in the infobox to add your experience.</li>
                 </ul>

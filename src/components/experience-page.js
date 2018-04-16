@@ -5,6 +5,8 @@ import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 import { Link } from 'react-router-dom';
 import ExperienceList from './experience-list';
+import { logoutUser } from '../actions';
+import { connect } from 'react-redux';
 
 
 class ExperiencePage extends Component {
@@ -27,6 +29,7 @@ class ExperiencePage extends Component {
                       title="Xperience"
                       onLeftIconButtonClick={this.handleToggle}
                       className="app-bar"
+                      style={{boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19)'}}
                   />
                   <h1 className="experience-header">Experiences</h1>
                   <ExperienceList className="experiences" />
@@ -36,11 +39,11 @@ class ExperiencePage extends Component {
                       open={this.state.open}
                       onRequestChange={(open) => this.setState({open})}>
 
-                      <AppBar title="Xperience" />
+                      <AppBar title="Xperience" style={{boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19)'}}/>
+                      <MenuItem containerElement={<Link to="/" />} id="home">Home</MenuItem>
                       <MenuItem containerElement={<Link to="/dashboard" />} id="dashboard">Dashboard</MenuItem>
                       <MenuItem containerElement={<Link to="/experience-page" />} id="experiences">Experiences</MenuItem>
-                      <MenuItem id="following">Following</MenuItem>
-                      <MenuItem id="logout">Log Out</MenuItem>
+                      <MenuItem onClick={() => this.props.dispatch(logoutUser())} id="logout">Log Out</MenuItem>
                   </Drawer>
               </div>
           </div>
@@ -48,4 +51,4 @@ class ExperiencePage extends Component {
     }
 };
 
-export default ExperiencePage;
+export default connect()(ExperiencePage);

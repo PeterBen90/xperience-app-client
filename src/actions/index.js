@@ -54,6 +54,7 @@ export const loginUser = (username, password) => dispatch => {
     history.push('/dashboard')
   })
   .catch(error => {
+    alert('Wrong Username or Password!')
     window.location = '/'
   })
 }
@@ -73,7 +74,7 @@ export const addExperience = (title, date, location, details, recommendation) =>
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${localStorage.getItem('authToken')}`
     },
-    body: JSON.stringify({title, date, location, details, recommendation}),
+    body: JSON.stringify({ title, date, location, details, recommendation }),
   })
   .then(res => res.json())
   .then(experiences => {
@@ -103,6 +104,27 @@ export const fetchExperiences = () => dispatch => {
   })
   .catch(error => console.log(error))
 }
+
+export const deleteExperience = experienceId => dispatch => {
+
+  fetch(`${API_BASE_URL}/experience/${localStorage.getItem('userId')}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${localStorage.getItem('authToken')}`
+    },
+    body: JSON.stringify({ experienceId })
+  })
+  .then(res => res.json())
+  .then(experiences => dispatch(fetchExperiencesSuccess(experiences)))
+  .catch(error => console.log(error))
+}
+
+export const EDIT_EXPERIENCES_SUCCESS = 'EDIT_EXPERIENCES_SUCCESS'
+export const EditExperiencesSuccess = experiences => ({
+  type: EDIT_EXPERIENCES_SUCCESS,
+  experiences
+})
 
 
 

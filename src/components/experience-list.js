@@ -5,6 +5,9 @@ import { connect } from 'react-redux';
 import { fetchExperiences } from '../actions';
 import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
+import MapMarker from '../images/map-marker.png';
+import { deleteExperience } from '../actions';
+import EditExperienceModal from './edit-experience-modal';
 
 
 class ExperienceList extends Component {
@@ -17,7 +20,7 @@ class ExperienceList extends Component {
     return (
       <div className="experience-container">
         {this.props.experiences.map((experience, index) => (
-          <div className="col-4" key={index}>
+          <div className="col-4" key={experience._id}>
             <Card containerStyle={{ backgroundColor:'#00838F',
                                     border: '2px solid grey',
                                     boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19)',
@@ -30,11 +33,12 @@ class ExperienceList extends Component {
                 showExpandableButton={true}
               />
               <CardActions>
-                <RaisedButton label="Edit" style={{marginLeft: '25px'}} />
-                <RaisedButton label="Delete" style={{marginLeft: '25px'}} />
+                <EditExperienceModal />
+                <RaisedButton label="Delete" onClick={() => this.props.dispatch(deleteExperience(experience._id))} style={{marginLeft: '25px', marginBottom: '5px'}} />
+                <img className="marker-icon" src={MapMarker} alt="marker icon" />
               </CardActions>
               <CardText style={{fontSize: '16px', marginLeft: '20px'}} expandable={true}>
-                <div><p>DATE:</p> {experience.date}</div>
+                <div><p>DATE:</p> {experience.date} (YYYY-MM-DD)</div>
                 <div><p>LOCATION:</p> {experience.location}</div>
                 <div><p>DETAILS:</p> {experience.details}</div>
                 <div><p>RECOMMENDATION:</p> {experience.recommendation}</div>

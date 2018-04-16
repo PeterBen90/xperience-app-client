@@ -1,7 +1,7 @@
 const initialState = {
   data: {},
   authToken: null,
-  userId: null
+  userId: null,
 }
 
 const user = (state = initialState, action) => {

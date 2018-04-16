@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './add-experience-modal.css';
+import './edit-experience-modal.css';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -16,14 +16,15 @@ const styles = {
 };
 
 
-class AddExperienceModal extends Component {
+class EditExperienceModal extends Component {
   constructor(props) {
+    console.log(props);
       super(props);
       this.state = {
           open: false,
+          title: props.experiences.title,
       };
   }
-
 
   handleOpen = () => {
     this.setState({open: true});
@@ -56,42 +57,27 @@ class AddExperienceModal extends Component {
 
     return (
       <div>
-        <RaisedButton label="Add Experience" onClick={this.handleOpen} />
+        <RaisedButton label="Edit" onClick={this.handleOpen} style={{marginLeft: '25px', marginBottom: '5px'}} />
         <Dialog
-          title="Add Experience"
+          title="Edit Experience"
           modal={true}
           open={this.state.open}
           autoScrollBodyContent={true}
         >
-          <form onSubmit={(e) => {
-              e.preventDefault(); this.handleClose();
-
-              let titleInput = e.target.titleInput.value;
-              let dateInput = e.target.dateInput.value;
-              let locationInput = e.target.locationInput.value;
-              let detailsInput = e.target.detailsInput.value;
-              let recommendationInput = e.target.recommendationInput.value;
-
-              this.props.addExperience(titleInput, dateInput, locationInput, detailsInput, recommendationInput);
-              e.target.titleInput.value = '';
-              e.target.dateInput.value = '';
-              e.target.locationInput.value = '';
-              e.target.detailsInput.value = '';
-              e.target.recommendationInput.value = '';
-            }}>
-              <TextField name="titleInput" hintText="Experience Title" required={true} />
-              <DatePicker name="dateInput" hintText="Date of Experience" autoOk={true} required={true} />
-              <TextField name="locationInput" hintText="Location" required={true} /><br />
+          <form>
+              <TextField name="title" hintText="Experience Title" required={true} value={this.state.title}/>
+              <DatePicker name="date" hintText="Date of Experience" autoOk={true} required={true} />
+              <TextField name="location" hintText="Location" required={true} /><br />
               <TextField
                 floatingLabelText="How was your experience?"
-                name="detailsInput"
+                name="details"
                 multiLine={true}
                 rows={2}
                 rowsMax={20}
                 required={true}
               /><br />
               <p className="recommendation">Would you recommend this experience?</p>
-              <RadioButtonGroup name="recommendationInput" defaultSelected="Yes" required={true}>
+              <RadioButtonGroup name="recommendation" required={true}>
                   <RadioButton
                     value="Yes"
                     label="Yes"
@@ -113,8 +99,12 @@ class AddExperienceModal extends Component {
   }
 }
 
-const mapDispatchToProps = (dispatch) => ({
-  addExperience: (title, date, location, details, recommendation) => dispatch(addExperience(title, date, location, details, recommendation))
-});
+const mapStateToProps = (state) => {
+  console.log(state);
 
-export default connect(null, mapDispatchToProps)(AddExperienceModal);
+    return {
+      experiences: state.experienceReducer.experiences
+    }
+}
+
+export default connect(mapStateToProps)(EditExperienceModal);

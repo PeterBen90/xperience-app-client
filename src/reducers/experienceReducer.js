@@ -25,13 +25,7 @@ const experienceReducer = (state = initialState, action) => {
     case 'EDIT_EXPERIENCES_SUCCESS':
       return {
         ...state,
-        experiences: [...state.experiences, {
-          title: action.title,
-          date: action.date,
-          location: action.location,
-          details: action.details,
-          recommendation: action.recommendation
-        }]
+        experiences: action.experiences
       }
 
     default:

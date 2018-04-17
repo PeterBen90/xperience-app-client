@@ -6,6 +6,7 @@ import MenuItem from 'material-ui/MenuItem';
 import Header from './header';
 import DisplayCards from './display-cards';
 import RegistrationForm from './registration-form';
+import Footer from './footer';
 import { Link } from 'react-router-dom';
 
 
@@ -48,6 +49,9 @@ class Home extends Component {
               </div>
               <div id="display-cards" className="instructions-display">
                   <DisplayCards />
+              </div>
+              <div>
+                <Footer />
               </div>
           </div>
         );

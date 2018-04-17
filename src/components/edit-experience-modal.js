@@ -18,23 +18,42 @@ const styles = {
 
 class EditExperienceModal extends Component {
   constructor(props) {
-    console.log(props);
       super(props);
       this.state = {
           open: false,
-          title: props.experiences.title,
+          formValues: {
+            title: props.experience.title,
+            date: props.experience.date,
+            location: props.experience.location,
+            details: props.experience.details,
+            recommendation: props.experience.recommendation
+          }
       };
+  }
+
+  componentWillReceiveProps(newProps) {
+    this.setState({
+      open: false,
+      formValues: {
+        title: newProps.experience.title,
+        date: newProps.experience.date,
+        location: newProps.experience.location,
+        details: newProps.experience.details,
+        recommendation: newProps.experience.recommendation
+      }
+    })
   }
 
   handleOpen = () => {
     this.setState({open: true});
   };
-
+f
   handleClose = () => {
     this.setState({open: false});
   };
 
   render() {
+    console.log(this.props);
     const actions = [
       <FlatButton
         type="reset"
@@ -51,6 +70,7 @@ class EditExperienceModal extends Component {
         type="submit"
         label="Submit"
         primary={true}
+        onClick={() => this.props.dispatch(addExperience(this.state))}
       />,
     ];
 
@@ -65,9 +85,9 @@ class EditExperienceModal extends Component {
           autoScrollBodyContent={true}
         >
           <form>
-              <TextField name="title" hintText="Experience Title" required={true} value={this.state.title}/>
-              <DatePicker name="date" hintText="Date of Experience" autoOk={true} required={true} />
-              <TextField name="location" hintText="Location" required={true} /><br />
+              <TextField name="title" hintText="Experience Title" required={true} value={this.state.formValues.title}/>
+              <DatePicker name="date" hintText="Date of Experience" autoOk={true}  required={true} />
+              <TextField name="location" hintText="Location" required={true}  value={this.state.formValues.location}/><br />
               <TextField
                 floatingLabelText="How was your experience?"
                 name="details"
@@ -75,9 +95,10 @@ class EditExperienceModal extends Component {
                 rows={2}
                 rowsMax={20}
                 required={true}
+                value={this.state.formValues.details}
               /><br />
               <p className="recommendation">Would you recommend this experience?</p>
-              <RadioButtonGroup name="recommendation" required={true}>
+              <RadioButtonGroup name="recommendation" required={true} valueSelected={this.state.formValues.recommendation}>
                   <RadioButton
                     value="Yes"
                     label="Yes"
@@ -89,7 +110,7 @@ class EditExperienceModal extends Component {
                     style={styles.radioButton}
                   />
               </RadioButtonGroup>
-              <div style={{ textAlign: 'right', padding: 8, margin: '24px -24px -24px -24px' }}>
+              <div style={{ textAlign: 'right', padding: 8, margin: '8px -24px -24px -24px' }}>
                 {actions}
               </div>
           </form>
@@ -99,12 +120,5 @@ class EditExperienceModal extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  console.log(state);
 
-    return {
-      experiences: state.experienceReducer.experiences
-    }
-}
-
-export default connect(mapStateToProps)(EditExperienceModal);
+export default connect()(EditExperienceModal);

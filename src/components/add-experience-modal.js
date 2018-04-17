@@ -103,7 +103,7 @@ class AddExperienceModal extends Component {
                     style={styles.radioButton}
                   />
               </RadioButtonGroup>
-              <div style={{ textAlign: 'right', padding: 8, margin: '24px -24px -24px -24px' }}>
+              <div style={{ textAlign: 'right', padding: 8, margin: '8px -24px -24px -24px' }}>
                 {actions}
               </div>
           </form>

@@ -1,0 +1,9 @@
+* {
+  box-sizing: border-box;
+}
+
+.recommendation {
+  color: white;
+  font-weight: normal;
+  margin-top: 5px;
+}

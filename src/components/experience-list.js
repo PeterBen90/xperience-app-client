@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { fetchExperiences } from '../actions';
 import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
-import MapMarker from '../images/map-marker.png';
+import Calendar from '../images/calendar.png';
 import { deleteExperience } from '../actions';
 import EditExperienceModal from './edit-experience-modal';
 
@@ -33,9 +33,9 @@ class ExperienceList extends Component {
                 showExpandableButton={true}
               />
               <CardActions>
-                <EditExperienceModal />
+                <EditExperienceModal experience={experience} />
                 <RaisedButton label="Delete" onClick={() => this.props.dispatch(deleteExperience(experience._id))} style={{marginLeft: '25px', marginBottom: '5px'}} />
-                <img className="marker-icon" src={MapMarker} alt="marker icon" />
+                <img className="marker-icon" src={Calendar} alt="marker icon" />
               </CardActions>
               <CardText style={{fontSize: '16px', marginLeft: '20px'}} expandable={true}>
                 <div><p>DATE:</p> {experience.date} (YYYY-MM-DD)</div>

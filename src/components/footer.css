@@ -1,0 +1,48 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+.github-icon,
+.linkedin-icon {
+  height: 30px;
+  width: 30px;
+  margin: 20px;
+  position: relative;
+  bottom: 20px;
+}
+
+.email-icon {
+  height: 35px;
+  width: 35px;
+  margin: 20px;
+  position: relative;
+  bottom: 17px;
+}
+
+.footer-content {
+  color: black;
+  font-weight: bold;
+  font-size: 18px;
+  margin-top: 30px;
+  position: relative;
+  bottom: 20px;
+}
+
+.node-icon {
+  height: 65px;
+  width: 65px;
+}
+
+.react-icon {
+  height: 40px;
+  width: 40px;
+  position: relative;
+  bottom: 11px;
+}
+
+.footer-content span {
+  position: relative;
+  bottom: 20px;
+  margin-right: 10px;
+}

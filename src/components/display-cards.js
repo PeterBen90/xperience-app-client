@@ -33,7 +33,7 @@ const DisplayCards = (props) => {
             <div className="box get-started">
               <h2 className="card-title">Get Started!</h2>
               <img className="start-image" src={Phone} alt="phone" />
-              <p className="card-content-3">Create a free account here or register from the side bar to start tracking your experiences now!</p>
+              <p className="card-content-3">Create a free account here or register from the side bar to start tracking your experiences now! (Click login to use demo account) </p>
               <RegistrationForm />
               <MenuItem containerElement={<Link to="/login-form" />} id="login">Log In</MenuItem>
             </div>

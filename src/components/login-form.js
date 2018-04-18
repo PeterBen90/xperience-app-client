@@ -58,7 +58,8 @@ class LoginForm extends Component {
 
               this.props.dispatch(loginUser(username, password));
             }}>
-            <p> Username: Demo Password: 12345 </p>
+            <p className="demo-account">Username: Demo</p>
+            <p className="demo-account">Password: 12345</p>
             <TextField name="username" type="text" hintText="Username" required={true}/><br />
             <TextField name="password" type="password" hintText="Password" required={true}/>
             <div style={{ textAlign: 'right', padding: 8, margin: '24px -24px -24px -24px' }}>

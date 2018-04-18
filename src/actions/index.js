@@ -120,11 +120,18 @@ export const deleteExperience = experienceId => dispatch => {
   .catch(error => console.log(error))
 }
 
-export const EDIT_EXPERIENCES_SUCCESS = 'EDIT_EXPERIENCES_SUCCESS'
-export const EditExperiencesSuccess = experiences => ({
-  type: EDIT_EXPERIENCES_SUCCESS,
-  experiences
-})
+export const editExperience = experience => dispatch => {
 
-
+  fetch(`${API_BASE_URL}/experience/${localStorage.getItem('userId')}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${localStorage.getItem('authToken')}`
+    },
+    body: JSON.stringify({ experience })
+  })
+  .then(res => res.json())
+  .then(experiences => dispatch(fetchExperiencesSuccess(experiences)))
+  .catch(error => console.log(error))
+}
 

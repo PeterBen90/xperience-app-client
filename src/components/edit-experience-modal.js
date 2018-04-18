@@ -7,7 +7,7 @@ import TextField from 'material-ui/TextField';
 import DatePicker from 'material-ui/DatePicker';
 import { RadioButton, RadioButtonGroup } from 'material-ui/RadioButton';
 import { connect } from 'react-redux';
-import { addExperience } from '../actions';
+import { editExperience } from '../actions';
 
 const styles = {
   radioButton: {
@@ -21,27 +21,14 @@ class EditExperienceModal extends Component {
       super(props);
       this.state = {
           open: false,
-          formValues: {
-            title: props.experience.title,
-            date: props.experience.date,
-            location: props.experience.location,
-            details: props.experience.details,
-            recommendation: props.experience.recommendation
-          }
-      };
-  }
+          experienceId: props.experience._id,
+          title: props.experience.title,
+          date: props.experience.date,
+          location: props.experience.location,
+          details: props.experience.details,
+          recommendation: props.experience.recommendation
 
-  componentWillReceiveProps(newProps) {
-    this.setState({
-      open: false,
-      formValues: {
-        title: newProps.experience.title,
-        date: newProps.experience.date,
-        location: newProps.experience.location,
-        details: newProps.experience.details,
-        recommendation: newProps.experience.recommendation
-      }
-    })
+      };
   }
 
   handleOpen = () => {
@@ -53,7 +40,6 @@ f
   };
 
   render() {
-    console.log(this.props);
     const actions = [
       <FlatButton
         type="reset"
@@ -67,10 +53,13 @@ f
         onClick={this.handleClose}
       />,
       <FlatButton
-        type="submit"
-        label="Submit"
+        label="Update"
         primary={true}
-        onClick={() => this.props.dispatch(addExperience(this.state))}
+        onClick={() => {
+          this.props.dispatch(editExperience(this.state))
+          this.handleClose()
+        }}
+
       />,
     ];
 
@@ -84,10 +73,17 @@ f
           open={this.state.open}
           autoScrollBodyContent={true}
         >
-          <form>
-              <TextField name="title" hintText="Experience Title" required={true} value={this.state.formValues.title}/>
-              <DatePicker name="date" hintText="Date of Experience" autoOk={true}  required={true} />
-              <TextField name="location" hintText="Location" required={true}  value={this.state.formValues.location}/><br />
+              <TextField
+                  name="title"
+                  hintText="Experience Title"
+                  required={true}
+                  onChange={(event, newValue) => this.setState({title: newValue})}
+                  value={this.state.title}
+              />
+              <DatePicker
+                name="date"
+                hintText="Date of Experience" autoOk={true} required={true} onChange={(event, newValue) => this.setState({date: newValue})} value={new Date(this.state.date)} />
+              <TextField name="location" hintText="Location" required={true} onChange={(event, newValue) => this.setState({location: newValue})}   value={this.state.location}/><br />
               <TextField
                 floatingLabelText="How was your experience?"
                 name="details"
@@ -95,10 +91,11 @@ f
                 rows={2}
                 rowsMax={20}
                 required={true}
-                value={this.state.formValues.details}
+                value={this.state.details}
+                onChange={(event, newValue) => this.setState({details: newValue})}
               /><br />
               <p className="recommendation">Would you recommend this experience?</p>
-              <RadioButtonGroup name="recommendation" required={true} valueSelected={this.state.formValues.recommendation}>
+              <RadioButtonGroup name="recommendation" required={true} onChange={(event, newValue) => this.setState({recommendation: newValue})} valueSelected={this.state.recommendation}>
                   <RadioButton
                     value="Yes"
                     label="Yes"
@@ -113,7 +110,6 @@ f
               <div style={{ textAlign: 'right', padding: 8, margin: '8px -24px -24px -24px' }}>
                 {actions}
               </div>
-          </form>
         </Dialog>
       </div>
     );

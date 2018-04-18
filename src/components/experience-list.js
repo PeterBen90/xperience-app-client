@@ -52,7 +52,6 @@ class ExperienceList extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state);
 
     return {
       experiences: state.experienceReducer.experiences

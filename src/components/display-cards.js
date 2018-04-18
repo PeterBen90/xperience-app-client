@@ -17,7 +17,7 @@ const DisplayCards = (props) => {
             <div className="box about">
               <h2 className="card-title">About</h2>
               <img className="about-image" src={World} alt="earth" />
-              <p className="card-content">Xperience lets you capture small moments of your life and post them. With Xperience you will be able to create a profile and store as many experiences you like. You will be able to create new memories, while having a place to relive old memories, as well.  </p>
+              <p className="card-content">Xperience lets you capture small moments of your life and post them. With Xperience you will be able store as many experiences you like. You will be able to create new memories, while having a place to relive old memories, as well.  </p>
             </div>
           </div>
 
@@ -25,7 +25,7 @@ const DisplayCards = (props) => {
             <div className="box how-to">
               <h2 className="card-title">How To</h2>
               <img className="how-to-image" src={Maps} alt="map" />
-              <p className="card-content-2">First, choose a city on the interactive map in your dashboard. Second, add a new experience to your growing list of experiences. Third, share you experiences with your friends and even view theirs too.</p>
+              <p className="card-content-2">First, choose a city on the interactive map in your dashboard. Second, add a new experience to your growing list of experiences. Third, share you experiences with your friends and family.</p>
             </div>
           </div>
 

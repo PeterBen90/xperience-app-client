@@ -1,1 +1,1 @@
-export const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || 'https://obscure-mountain-54680.herokuapp.com/'
+export const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || 'https://obscure-mountain-54680.herokuapp.com/api'

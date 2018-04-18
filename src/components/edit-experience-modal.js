@@ -42,12 +42,6 @@ f
   render() {
     const actions = [
       <FlatButton
-        type="reset"
-        label="Reset"
-        secondary={true}
-        style={{ float: 'left' }}
-        />,
-      <FlatButton
         label="Cancel"
         primary={true}
         onClick={this.handleClose}
@@ -74,16 +68,27 @@ f
           autoScrollBodyContent={true}
         >
               <TextField
-                  name="title"
-                  hintText="Experience Title"
-                  required={true}
-                  onChange={(event, newValue) => this.setState({title: newValue})}
-                  value={this.state.title}
+                name="title"
+                hintText="Experience Title"
+                required={true}
+                onChange={(event, newValue) => this.setState({title: newValue})}
+                value={this.state.title}
               />
               <DatePicker
                 name="date"
-                hintText="Date of Experience" autoOk={true} required={true} onChange={(event, newValue) => this.setState({date: newValue})} value={new Date(this.state.date)} />
-              <TextField name="location" hintText="Location" required={true} onChange={(event, newValue) => this.setState({location: newValue})}   value={this.state.location}/><br />
+                hintText="Date of Experience"
+                autoOk={true}
+                required={true}
+                onChange={(event, newValue) => this.setState({date: newValue})}
+                value={new Date(this.state.date)}
+              />
+              <TextField
+                name="location"
+                hintText="Location"
+                required={true}
+                onChange={(event, newValue) => this.setState({location: newValue})}
+                value={this.state.location}
+              /><br />
               <TextField
                 floatingLabelText="How was your experience?"
                 name="details"
@@ -95,7 +100,12 @@ f
                 onChange={(event, newValue) => this.setState({details: newValue})}
               /><br />
               <p className="recommendation">Would you recommend this experience?</p>
-              <RadioButtonGroup name="recommendation" required={true} onChange={(event, newValue) => this.setState({recommendation: newValue})} valueSelected={this.state.recommendation}>
+              <RadioButtonGroup
+                name="recommendation"
+                required={true}
+                onChange={(event, newValue) => this.setState({recommendation: newValue})}
+                valueSelected={this.state.recommendation}
+              >
                   <RadioButton
                     value="Yes"
                     label="Yes"

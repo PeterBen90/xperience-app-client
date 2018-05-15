@@ -4,6 +4,7 @@ import './float-grid.css';
 import Search from '../images/search.png';
 import Plus from '../images/plus.png';
 
+
 const DashboardInstructions = (props) => {
   return (
     <div className="instructions-container">
@@ -36,5 +37,6 @@ const DashboardInstructions = (props) => {
     </div>
   );
 };
+
 
 export default DashboardInstructions;

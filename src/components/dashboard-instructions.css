@@ -26,6 +26,8 @@
   color: #212121;
   font-weight: bold;
 }
+
+
 .row {
   margin-top: 40px;
   padding-top: 20px;
@@ -74,5 +76,17 @@
 
 }
 
+@media screen and (max-width: 320px) {
+
+
+  .card-1,
+  .card-2 {
+    font-size: 18px !important;
+  }
+
+  ul li {
+    font-size: 14px;
+  }
+}
 
 

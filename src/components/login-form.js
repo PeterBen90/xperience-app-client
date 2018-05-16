@@ -19,6 +19,9 @@ class LoginForm extends Component {
     this.setState({ open: false });
   }
 
+  handleRedirect() {
+    window.location ="/"
+  }
 
 
   render() {
@@ -29,6 +32,11 @@ class LoginForm extends Component {
         secondary={true}
         style={{ float: 'left' }}
         />,
+      <FlatButton
+        label="Cancel"
+        primary={true}
+        onClick={this.handleRedirect}
+      />,
       <FlatButton
         type="submit"
         label="Submit"

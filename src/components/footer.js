@@ -26,7 +26,7 @@ const Footer = () => (
         <img className="node-icon" src={Node} alt="node icon" /></p>
       </div>
       <a href="https://github.com/PeterBen90" target="blank"><img className="github-icon" src={GitHub} alt="github icon" /></a>
-      <a href="https://www.linkedin.com/in/peter-benvenuto-5a2646b8/" target="blank"><img className="linkedin-icon" src={LinkedIn} alt="linkedin icon" /></a>
+      <a href="https://www.linkedin.com/in/peter-benvenuto" target="blank"><img className="linkedin-icon" src={LinkedIn} alt="linkedin icon" /></a>
       <a href="mailto:peterbenvenuto90@gmail.com" target="_top"><img className="email-icon" src={Email} alt="email icon" /></a>
     </Paper>
   </div>

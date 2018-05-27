@@ -38,7 +38,7 @@ class ExperienceList extends Component {
                 <img className="marker-icon" src={Calendar} alt="marker icon" />
               </CardActions>
               <CardText style={{fontSize: '16px', marginLeft: '20px'}} expandable={true}>
-                <div><p>DATE:</p> {experience.date} (YYYY-MM-DD)</div>
+                <div><p>DATE:</p> {experience.date}</div>
                 <div><p>LOCATION:</p> {experience.location}</div>
                 <div><p>DETAILS:</p> {experience.details}</div>
                 <div><p>RECOMMENDATION:</p> {experience.recommendation}</div>

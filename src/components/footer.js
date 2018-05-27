@@ -1,11 +1,9 @@
 import React from 'react';
 import Paper from 'material-ui/Paper';
 import './footer.css'
-import GitHub from '../images/github-icon.png';
-import LinkedIn from '../images/linkedin-icon.png';
-import Email from '../images/email-icon.png';
 import Node from '../images/nodejs.png';
 import ReactIcon from '../images/react-icon.png';
+import FontAwesome from 'react-fontawesome';
 
 const style = {
   height: 150,
@@ -25,9 +23,25 @@ const Footer = () => (
         <img className="react-icon" src={ReactIcon} alt="react icon" />
         <img className="node-icon" src={Node} alt="node icon" /></p>
       </div>
-      <a href="https://github.com/PeterBen90" target="blank"><img className="github-icon" src={GitHub} alt="github icon" /></a>
-      <a href="https://www.linkedin.com/in/peter-benvenuto" target="blank"><img className="linkedin-icon" src={LinkedIn} alt="linkedin icon" /></a>
-      <a href="mailto:peterbenvenuto90@gmail.com" target="_top"><img className="email-icon" src={Email} alt="email icon" /></a>
+      <a className='icons' href="https://github.com/PeterBen90" target="blank" name="github">
+        <FontAwesome
+          name="github"
+          size='2x'
+        />
+      </a>
+
+      <a className='icons' href="https://www.linkedin.com/in/peter-benvenuto" target="blank" name="linkedin">
+        <FontAwesome
+          name="linkedin"
+          size='2x'
+        />
+      </a>
+      <a className='icons' href="mailto:peterbenvenuto90@gmail.com" target="blank" name="email-info">
+        <FontAwesome
+         name="envelope"
+         size='2x'
+        />
+      </a>
     </Paper>
   </div>
 );

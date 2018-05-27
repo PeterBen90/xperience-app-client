@@ -47,6 +47,13 @@
   margin-right: 10px;
 }
 
+.icons {
+  color: black;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+  margin-left: 10px;
+  margin-right: 15px;
+}
+
 @media screen and (max-width: 460px) {
 
   .footer-content {

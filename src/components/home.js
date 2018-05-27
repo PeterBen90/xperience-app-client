@@ -8,6 +8,7 @@ import DisplayCards from './display-cards';
 import RegistrationForm from './registration-form';
 import Footer from './footer';
 import { Link } from 'react-router-dom';
+import { animateScroll as scroll } from 'react-scroll';
 
 
 class Home extends Component {
@@ -19,6 +20,10 @@ class Home extends Component {
     }
 
     handleToggle = () => this.setState({open: !this.state.open});
+
+    scrollToCards(){
+        scroll.scrollTo(900);
+    }
 
 
     render() {
@@ -44,7 +49,7 @@ class Home extends Component {
                       <MenuItem containerElement={<Link to="/login-form" />} id="login">Log In</MenuItem>
                   </Drawer>
                   <div className="container">
-                      <a href="#display-cards" className="arrow down">Down</a>
+                      <a onClick={this.scrollToCards} href="#display-cards" className="arrow down">Down</a>
                   </div>
               </div>
               <div id="display-cards" className="instructions-display">

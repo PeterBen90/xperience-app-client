@@ -1,6 +1,6 @@
 <h1>Xperience</h1>
 
-<a href="https://xperience-app.netlify.com/">Xperience</a> lets you capture small moments of your life and post them. You will be able to create new memories, while having a place to relive old memories, as well.
+Xperience lets you capture small moments of your life and post them. You will be able to create new memories, while having a place to relive old memories, as well.
 
 <img src="/src/images/home-page.png" width="400" height="250"> <img src="/src/images/experience-page.png" width="400" height="250">
 
